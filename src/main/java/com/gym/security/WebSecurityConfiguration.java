@@ -19,35 +19,28 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/resources/**").anyRequest();
-    }
-
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+    public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
                 .passwordEncoder(getPasswordEncoder())
                 .withUser("admin")
                 .password(getPasswordEncoder().encode("asdf"))
-                .roles("USER");
+                .roles("ADMIN");
     }
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
+    public void configure(HttpSecurity http) throws Exception {
             http.csrf().disable()
                     .authorizeRequests()
                     .antMatchers("/").permitAll()
                     .antMatchers("/contact").permitAll()
                     .antMatchers("/schedule").permitAll()
-                    .antMatchers("/login").permitAll()
-                    .anyRequest().hasRole("USER").and()
-                    .formLogin()
-                        .loginPage("/login")
-                        .permitAll()
-                        .and()
-                    .logout()
-                        .logoutUrl("/logout")
-                        .permitAll();
+                    .antMatchers("/adminPanel").hasRole("ADMIN")
+                    .and().formLogin().permitAll().and().logout(); // .and().httpBasic()
 
     }
+
+//    @Override
+//    public void configure(WebSecurity web) throws Exception {
+//        web.ignoring().antMatchers("/resources/**").anyRequest();
+//    }
 }
