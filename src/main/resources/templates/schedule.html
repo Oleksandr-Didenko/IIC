@@ -19,6 +19,7 @@
 </head>
 
 <body>
+<!--<div class="container" th:if="${information != null}">-->
 
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
@@ -51,7 +52,12 @@
         <div class="row">
             <div class="col-lg-6">
                 <h1 class="mt-5">The Big Picture</h1>
-                <p><span th:text="${information.info}"></span></p>
+<!--                <p th:text="${information.info}"></p>-->
+                <table>
+                <tr th:each="information:${infos}">
+                    <td th:text="${information.info}"></td>
+                </tr>
+                </table>
             </div>
         </div>
     </div>
@@ -60,6 +66,7 @@
 <!-- Bootstrap core JavaScript -->
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 
 </body>
 

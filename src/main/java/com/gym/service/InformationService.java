@@ -5,6 +5,8 @@ import com.gym.repositories.InformationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class InformationService {
 
@@ -14,4 +16,8 @@ public class InformationService {
     public Information save(Information info){
         return informationRepos.save(info);
     }
+
+    public List<Information> getInformation(){
+        return informationRepos.findAll();
+    };
 }

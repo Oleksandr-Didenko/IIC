@@ -23,7 +23,6 @@ public class AdminPanelController {
     @PostMapping("/adminPanel")
     public String updateInfo(@ModelAttribute Information info){
         infoService.save(info);
-        System.out.println(info);
         return "redirect:/adminPanel";
     }
 }
