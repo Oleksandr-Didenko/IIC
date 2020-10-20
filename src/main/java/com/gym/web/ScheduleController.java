@@ -23,9 +23,7 @@ public class ScheduleController {
     public String scheduleView(ModelMap model){
 
         Optional<Information> infoOpt = informationRepo.findById(2);
-//
         Information information = infoOpt.get();
-
         model.addAttribute("infos", information);
 
         return "schedule";
