@@ -9,6 +9,7 @@ import javax.persistence.Id;
 public class Information {
     private int id;
     private String info;
+    private String name;
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getId() {
@@ -25,5 +26,13 @@ public class Information {
 
     public void setInfo(String info) {
         this.info = info;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

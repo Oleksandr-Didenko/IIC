@@ -15,13 +15,13 @@ public class AdminPanelController {
     private InformationService infoService;
 
     @GetMapping("/adminPanel")
-    public String adminView(ModelMap model){
+    public String adminView(ModelMap model) {
         model.put("information", new Information());
         return "adminPanel";
     }
 
     @PostMapping("/adminPanel")
-    public String updateInfo(@ModelAttribute Information info){
+    public String updateInfo(@ModelAttribute Information info) {
         infoService.save(info);
         return "redirect:/adminPanel";
     }

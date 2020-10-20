@@ -51,12 +51,23 @@
 <!-- Page Content -->
 <section>
     <form action="" method="post" >
-<!--        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">-->
-        <div class="container p-5" style="float: right">
-            <p>Information id:<input type="text" size="6" th:field="${information.id}"></p>
-            <br><textarea th:field="${information.info}"></textarea>
-
-            <br><button class="btn btn-primary" type="submit">Submit Changes</button>
+        <div class="container p-5 " style="float: right">
+<!--            <p>Information id:<input type="text" size="6" th:field="${information.name}"></p>-->
+            <p>Page name:</p>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" th:field="${information.id}" id="option1" value="1">
+                <label class="form-check-label my-text" for="option1">Home</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" th:field="${information.id}" id="option2" value="2">
+                <label class="form-check-label my-text" for="option2">Schedule</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" th:field="${information.id}" id="option3" value="3">
+                <label class="form-check-label my-text" for="option3">Contact</label>
+            </div>
+            <br><br><textarea th:field="${information.info}"></textarea>
+            <br><br><button class="btn btn-primary" type="submit">Submit Changes</button>
         </div>
     </form>
 </section>
