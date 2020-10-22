@@ -26,6 +26,10 @@ public class ScheduleController {
         Information information = infoOpt.get();
         model.addAttribute("infos", information);
 
+//        infoOpt = informationRepo.findById(2);
+//        information = infoOpt.get();
+//        model.addAttribute("infos", information);
+//
         return "schedule";
     }
 

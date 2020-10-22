@@ -51,8 +51,11 @@
     <div class="container" style="padding-top: 125px">
         <div class="row">
             <div class="col-lg-6">
-                <h1 class="mt-5">The Big Picture</h1>
+
                 <table>
+                    <tr th:each="information:${infos}">
+                        <h1 class="mt-5" th:text="${information.name}"></h1>
+                    </tr>
                 <tr th:each="information:${infos}">
                     <td class="" th:text="${information.info}"></td>
                 </tr>

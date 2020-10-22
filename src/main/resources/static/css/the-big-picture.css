@@ -6,7 +6,7 @@ p, td, .my-text{
   background-color: rgba(0,0,0, 0.2); /* Black w/opacity/see-through */
 }
 
-h1 {
+h1, .my-tittle{
   color: whitesmoke;
   text-shadow: 5px 5px 5px black;
 }
